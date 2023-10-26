@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www3.org/1999/xhtml" xmlns:th="http://www.thymleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/list.css}">
+    <title>住所録</title>
+</head>
+<body>
+    <div class="container">
+        <h1>住所録</h1>
+        <table class="table">
+            <tr>
+                <th style="width: 10%;">ID</th>
+                <th style="width: 10%;">姓</th>
+                <th style="width: 10%;">名</th>
+                <th style="width: 10%;">郵便番号</th>
+                <th style="width: 25%;">住所</th>
+                <th style="width: 10%;">備考</th>
+                <th style="width: 10%;">更新日時</th>
+                <th style="width: 5%;"></th>
+            </tr>
+            <tr th:each="user : ${userlist}" th:object="${user}" class="align-middle">
+                <td th:text="*{id}"></td>
+                <td th:text="*{lastname}"></td>
+                <td th:text="*{firstname}"></td>
+                <td th:text="*{postnumber}"></td>
+                <td th:text="*{address}"></td>
+                <td th:text="*{remarks}"></td>
+                <td th:text="${#dates.format(user.updatedate, 'yyyy/MM/dd')}"></td>
+                <td><a th:href="@{/user/{id}/view(id=*{id})}" class="btn button-secondary">詳細</a></td>
+            </tr>
+        </table>
+        <div class="float-end">
+            <a th:href="@{/user/home}" class="btn button-primary">戻る</a>
+        </div>
+    </div>
+</body>
+</html>
