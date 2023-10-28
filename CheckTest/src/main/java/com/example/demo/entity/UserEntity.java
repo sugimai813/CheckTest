@@ -1,6 +1,6 @@
 package com.example.demo.entity;
 
-import java.sql.Date;
+import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -40,5 +40,5 @@ public class UserEntity {
 	private String remarks;
 	
 	@Column(name = "updatedate")
-	private Date updatedate;
+	private LocalDate updatedate;
 }

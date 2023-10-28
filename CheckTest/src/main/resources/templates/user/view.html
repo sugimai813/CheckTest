@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www3.org/1999/xhtml" xmlns:th="http://www.thymleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,40 +10,40 @@
 <body>
     <div class="container">
         <h1>情報詳細</h1>
-
+        <div th:object="${userData}">
         <table class="table">
             <tr>
                 <th>姓</th>
-                <td></td>
+                <td th:text="*{lastname}"></td>
             </tr>
             <tr>
                 <th>名</th>
-                <td></td>
+                <td th:text="*{firstname}"></td>
             </tr>
             <tr>
                 <th>郵便番号</th>
-                <td></td>
+                <td th:text="*{postnumber}"></td>
             </tr>
             <tr>
                 <th>住所</th>
-                <td></td>
+                <td th:text="*{address}"></td>
             </tr>
             <tr>
                 <th>電話番号</th>
-                <td></td>
+                <td th:text="*{phone}"></td>
             </tr>
             <tr>
                 <th>備考</th>
-                <td></td>
+                <td th:text="*{remarks}"></td>
             </tr>
         </table>
 
         <div class="button-container">
-            <a href="" class="button-secondary">戻る</a>
-            <a href="" class="button-primary">編集</a>
-            <a href="" class="button-secondary">削除</a>
+            <a href="/user/list" class="button-secondary">戻る</a>
+            <a th:href="@{/user/{id}/edit(id=${userData.id})}" class="button-primary">編集</a>
+            <a th:href="@{/user/{id}/delete(id=${userData.id})}" class="button-secondary">削除</a>
         </div>
-
+        </div>
     </div>
 </body>
 </html>

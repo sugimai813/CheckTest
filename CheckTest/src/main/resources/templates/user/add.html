@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www3.org/1999/xhtml" xmlns:th="http://www.thymleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,35 +9,37 @@
 </head>
 <body>
     <div class="container">
+     <div th:if="${validationError}" th:each="error : ${validationError}">
+    <label class="text-danger" th:text="${error}" style="color: red;"></label></div>
         <h1>新規登録</h1>
-
-        <form>
+        <form th:action="@{/user/create}" th:object="${userRequest}" th:method="post">
+   
             <div class="form-item">
                 <p class="Form-Item-Label">★姓</p>
-                <input type="text" class="Form-Item-Input" th:field="">
+                <input type="text" class="Form-Item-Input" th:field="*{lastname}">
             </div>
             <div class="form-item">
                 <p class="Form-Item-Label">★名</p>
-                <input type="text" class="Form-Item-Input" th:field="">
+                <input type="text" class="Form-Item-Input" th:field="*{firstname}">
             </div>
             <div class="form-item">
                 <p class="Form-Item-Label">★郵便番号</p>
-                <input type="text" class="Form-Item-Input" th:field="">
+                <input type="text" class="Form-Item-Input" th:field="*{postnumber}">
             </div>
             <div class="form-item">
                 <p class="Form-Item-Label">★住所</p>
-                <input type="text" class="Form-Item-Input" th:field="">
+                <input type="text" class="Form-Item-Input" th:field="*{address}">
             </div>
             <div class="form-item">
                 <p class="Form-Item-Label">電話番号</p>
-                <input type="text" class="Form-Item-Input" th:field="">
+                <input type="text" class="Form-Item-Input" th:field="*{phone}">
             </div>
             <div class="form-item">
                 <p class="Form-Item-Label">備考</p>
-                <input type="text" class="Form-Item-Input" th:field="">
+                <input type="text" class="Form-Item-Input" th:field="*{remarks}">
             </div>
             <div class="button-container">
-                <a href="" class="button-secondary">戻る</a>
+                <a href="/user/home" class="button-secondary">戻る</a>
                 <input type="submit" value="登録" class="btn button-primary">
             </div>
         </form>

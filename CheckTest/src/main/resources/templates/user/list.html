@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www3.org/1999/xhtml" xmlns:th="http://www.thymleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -28,7 +28,7 @@
                 <td th:text="*{postnumber}"></td>
                 <td th:text="*{address}"></td>
                 <td th:text="*{remarks}"></td>
-                <td th:text="${#dates.format(user.updatedate, 'yyyy/MM/dd')}"></td>
+                <td th:text="${#temporals.format(user.updatedate, 'yyyy/MM/dd')}"></td>
                 <td><a th:href="@{/user/{id}/view(id=*{id})}" class="btn button-secondary">詳細</a></td>
             </tr>
         </table>
