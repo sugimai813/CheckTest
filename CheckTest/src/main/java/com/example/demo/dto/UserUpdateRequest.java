@@ -10,7 +10,6 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = false)
 public class UserUpdateRequest extends UserRequest implements Serializable{
-	
 	@NotNull
 	private Integer id;
 

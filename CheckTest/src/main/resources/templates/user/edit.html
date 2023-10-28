@@ -12,9 +12,12 @@
      <div th:if="${validationError}" th:each="error : ${validationError}">
     <label class="text-danger" th:text="${error}" style="color: red;"></label></div>
         <h1>情報編集</h1>
-        <form th:action="@{/user/update}" th:object="${userUpdateRequest}" th:method="post">
-        <input type="hidden" name="id" th:value=${id}>
-        
+        <form th:action="@{/user/update}" th:object="${userUpdateRequest}" method="post">
+      
+           <div class="form-item">
+                <p class="Form-Item-Label">id</p>
+                <input type="text" class="Form-Item-Input" th:field="*{id}" readonly>
+            </div>
             <div class="form-item">
                 <p class="Form-Item-Label">★姓</p>
                 <input type="text" class="Form-Item-Input" th:field="*{lastname}">

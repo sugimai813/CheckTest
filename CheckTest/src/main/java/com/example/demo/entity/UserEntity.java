@@ -34,7 +34,7 @@ public class UserEntity {
 	private String address;
 	
 	@Column(name = "phone")
-	private Integer phone;
+	private String phone;
 	
 	@Column(name = "remarks")
 	private String remarks;

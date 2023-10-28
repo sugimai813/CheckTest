@@ -6,6 +6,7 @@ import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 import lombok.Data;
@@ -28,8 +29,8 @@ public class UserRequest implements Serializable{
 	@Size(max = 150, message = "150文字以内で入力してください")
 	private String address;
 	
-	@Min(value = 0, message = "電話番号は数字を入力してください")
-	private Integer phone;
+	@Pattern(regexp = "^[0-9]*$", message = "電話番号は数字を入力してください")
+	private String phone;
 	
 	@Size(max = 50, message = "50文字以内で入力してください")
 	private String remarks;
