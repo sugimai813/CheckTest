@@ -26,12 +26,12 @@ public class UserRequest implements Serializable{
 	private Integer postnumber;
 	
 	@NotEmpty(message = "住所は必須入力項目です")
-	@Size(max = 150, message = "150文字以内で入力してください")
+	@Size(max = 150, message = "住所は150文字以内で入力してください")
 	private String address;
 	
 	@Pattern(regexp = "^[0-9]*$", message = "電話番号は数字を入力してください")
 	private String phone;
 	
-	@Size(max = 50, message = "50文字以内で入力してください")
+	@Size(max = 50, message = "備考は50文字以内で入力してください")
 	private String remarks;
 }
