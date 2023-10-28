@@ -84,6 +84,7 @@ public class UserController {
 	public String displayEdit(@PathVariable Integer id, Model model) {
 		UserEntity user = userService.findById(id);
 		UserUpdateRequest userUpdateRequest = new UserUpdateRequest();
+		userUpdateRequest.setId(id); 
 		userUpdateRequest.setLastname(user.getLastname());
 		userUpdateRequest.setFirstname(user.getFirstname());
 		userUpdateRequest.setPostnumber(user.getPostnumber());
@@ -106,7 +107,7 @@ public class UserController {
 			return "user/edit";
 		}
 		userService.update(userUpdateRequest);
-		return String.format("redirect:/user/list", userUpdateRequest.getId());
+		return "redirect:/user/list";
 	}
 	
 //	情報削除
